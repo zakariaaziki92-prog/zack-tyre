@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080808">
+<title>ZACK TYRE — Trouvez votre pneu</title>
+<style>
+:root{--r:#ed111b;--r2:#ff2630;--bg:#070707;--panel:#111113;--line:#26262a;--muted:#9c9ca2;--green:#20c879}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:#fff;font-family:Arial,Helvetica,sans-serif}
+button,input,select{font:inherit}button{cursor:pointer}
+.header{position:sticky;top:0;z-index:50;background:rgba(7,7,7,.97);backdrop-filter:blur(14px);border-bottom:1px solid #242428;box-shadow:0 8px 30px rgba(0,0,0,.28)}
+.header-in{height:88px;max-width:1100px;margin:auto;padding:6px 18px;display:flex;align-items:center;justify-content:space-between}
+.logo{height:76px;max-width:230px;width:auto;object-fit:contain;display:block}.nav{display:flex;gap:20px;align-items:center}.nav a{color:#ddd;font-weight:700;font-size:14px}.nav a:hover{color:#ff3c45}
+.iconbtn{width:42px;height:42px;border:1px solid #2b2b30;background:#101012;color:#fff;border-radius:12px}
+.hero{min-height:610px;display:flex;align-items:center;justify-content:center;text-align:center;padding:55px 18px 70px;background:radial-gradient(circle at 50% 20%,#351012 0,#130809 25%,#070707 63%)}
+.hero-inner{max-width:850px}.eyebrow{display:inline-block;border:1px solid #5a1b20;background:#18090a;color:#ff6670;padding:9px 14px;border-radius:99px;font-size:12px;font-weight:900;letter-spacing:.7px}
+.hero h1{font-size:clamp(43px,8vw,76px);line-height:.96;letter-spacing:-3px;margin:22px 0 18px}.hero h1 span{color:var(--r2)}
+.hero p{max-width:650px;margin:0 auto;color:#b5b5ba;line-height:1.7;font-size:17px}
+.finder{max-width:1050px;margin:-55px auto 0;padding:0 15px;position:relative;z-index:5}
+.finder-card{background:#111114;border:1px solid #2a2a2e;border-radius:25px;padding:22px;box-shadow:0 25px 70px #000}
+.steps{display:flex;justify-content:space-between;gap:8px;margin-bottom:20px}.step{flex:1;text-align:center;color:#777;font-size:11px;font-weight:900}.dot{width:28px;height:28px;border-radius:50%;border:1px solid #36363a;margin:0 auto 6px;display:flex;align-items:center;justify-content:center}.step.active{color:#fff}.step.active .dot{background:var(--r);border-color:var(--r)}
+.finder-title{font-size:23px;font-weight:900;text-align:center;margin:6px 0 5px}.finder-sub{text-align:center;color:#888;margin:0 0 20px;font-size:13px}
+.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.choice{min-height:72px;border:1px solid #303035;background:#0b0b0d;border-radius:14px;color:#fff;font-weight:900;font-size:18px}.choice:hover,.choice.selected{border-color:var(--r);background:#210a0c;box-shadow:0 0 0 1px var(--r) inset}
+.actions{display:flex;gap:10px;margin-top:17px}.primary,.secondary{border-radius:13px;padding:14px 18px;border:1px solid #303035;font-weight:900}.primary{flex:1;background:var(--r);color:#fff;border-color:var(--r)}.secondary{background:#0c0c0e;color:#fff}
+.hidden{display:none!important}
+.results{max-width:1100px;margin:auto;padding:55px 18px 80px}.result-head{display:flex;justify-content:space-between;gap:15px;align-items:end;margin-bottom:22px}.result-head h2{margin:0;font-size:32px}.result-head p{margin:6px 0 0;color:#999}.count{border:1px solid #3b171a;color:#ff626a;background:#160809;border-radius:99px;padding:8px 12px;font-size:12px;font-weight:900}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:linear-gradient(180deg,#151518,#0d0d0f);border:1px solid #29292d;border-radius:19px;overflow:hidden}.photo{height:270px;background:#111;position:relative}.photo img{width:100%;height:100%;object-fit:cover}.label{position:absolute;left:12px;top:12px;background:var(--r);border-radius:99px;padding:7px 10px;font-size:10px;font-weight:900}.body{padding:16px}.brand{font-size:11px;color:#ff5660;font-weight:900;letter-spacing:1px;text-transform:uppercase}.name{font-size:20px;font-weight:900;margin:5px 0}.spec{font-size:13px;color:#999}.price{font-size:25px;font-weight:950;margin-top:12px}.buy{width:100%;border:0;background:var(--r);color:#fff;border-radius:11px;padding:13px;margin-top:13px;font-weight:900}.buy:hover{background:#ff2832}
+.features{max-width:1100px;margin:auto;padding:0 18px 75px;display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.feature{border:1px solid #242428;background:#0e0e10;border-radius:16px;padding:18px}.feature b{display:block;margin-bottom:6px}.feature span{color:#929298;font-size:13px;line-height:1.5}
+.footer{border-top:1px solid #222;background:#080809;padding:32px 18px}.footin{max-width:1100px;margin:auto;display:flex;justify-content:space-between;gap:20px;align-items:center}.footin img{height:52px}.footin p{color:#999;margin:5px 0}
+.wa{position:fixed;right:17px;bottom:17px;z-index:40;width:58px;height:58px;border-radius:50%;background:#25d366;color:white;display:flex;align-items:center;justify-content:center;font-size:29px;box-shadow:0 10px 35px #000}
+.modal{position:fixed;inset:0;background:#000b;z-index:100;display:flex;align-items:center;justify-content:center;padding:18px}.modalbox{width:min(460px,100%);background:#111114;border:1px solid #303035;border-radius:20px;padding:20px}.modalbox h3{margin:0 0 7px;font-size:23px}.modalbox p{color:#aaa;font-size:13px;line-height:1.5}.modalbox input,.modalbox textarea{width:100%;background:#08080a;border:1px solid #303035;color:#fff;border-radius:10px;padding:12px;margin:6px 0;outline:0}.close{float:right;background:none;border:0;color:#aaa;font-size:28px}
+@media(max-width:800px){.nav a{display:none}.hero{min-height:520px}.grid{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:1fr}.finder-card{padding:17px}}
+@media(max-width:560px){.header-in{height:78px}.logo{height:67px;max-width:190px}.choices{grid-template-columns:1fr}.choice{min-height:60px}.grid{grid-template-columns:1fr}.photo{height:310px}.hero h1{letter-spacing:-2px}.hero p{font-size:15px}.steps .step{font-size:9px}}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="header-in">
+    <a href="#"><img class="logo" src="assets/logo.png" alt="ZACK TYRE"></a>
+    <div class="nav"><a href="#finder">Trouver un pneu</a><a href="#results">Produits</a><a href="#contact">Contact</a><a href="https://www.tiktok.com/@zack.tyre" target="_blank">TikTok</a><button class="iconbtn" onclick="openMenu()">☰</button></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">ZACK TYRE • CASABLANCA</span>
+    <h1>Trouvez le pneu<br><span>qu'il vous faut.</span></h1>
+    <p>Sélectionnez les dimensions de votre pneu et découvrez instantanément les modèles disponibles chez ZACK TYRE.</p>
+  </div>
+</section>
+
+<section class="finder" id="finder">
+  <div class="finder-card">
+    <div class="steps">
+      <div class="step active" id="s1"><div class="dot">1</div>Largeur</div>
+      <div class="step" id="s2"><div class="dot">2</div>Hauteur</div>
+      <div class="step" id="s3"><div class="dot">3</div>Diamètre</div>
+      <div class="step" id="s4"><div class="dot">✓</div>Résultats</div>
+    </div>
+    <div id="finderContent"></div>
+  </div>
+</section>
+
+<section class="results hidden" id="results">
+  <div class="result-head">
+    <div><h2>Pneus disponibles</h2><p id="dimensionText"></p></div>
+    <span class="count" id="count"></span>
+  </div>
+  <div class="grid" id="productGrid"></div>
+</section>
+
+<section class="features">
+  <div class="feature"><b>🚚 Livraison au Maroc</b><span>Demandez les conditions et frais de livraison sur WhatsApp.</span></div>
+  <div class="feature"><b>💵 Paiement à la livraison</b><span>Commande simple et paiement à la réception.</span></div>
+  <div class="feature"><b>💬 Commande WhatsApp</b><span>Un clic pour envoyer votre pneu et vos coordonnées.</span></div>
+</section>
+
+<footer class="footer" id="contact">
+  <div class="footin"><div><img src="assets/logo.png" alt="ZACK TYRE"><p>Casablanca, Morocco</p></div><div><p>+212 704 129 357</p><p><a href="https://www.tiktok.com/@zack.tyre" target="_blank">@zack.tyre</a></p></div></div>
+</footer>
+<a class="wa" href="https://wa.me/212704129357?text=Bonjour%20ZACK%20TYRE,%20je%20cherche%20un%20pneu." target="_blank">✆</a>
+
+<div class="modal hidden" id="modal">
+ <div class="modalbox">
+  <button class="close" onclick="closeOrder()">×</button>
+  <h3>Commander / شراء</h3>
+  <p id="selected"></p>
+  <input id="client" placeholder="Nom / الاسم">
+  <input id="phone" placeholder="Téléphone / الهاتف">
+  <input id="city" placeholder="Ville / المدينة">
+  <textarea id="address" rows="3" placeholder="Adresse / العنوان"></textarea>
+  <button class="buy" onclick="sendOrder()">Envoyer sur WhatsApp / إرسال عبر واتساب</button>
+ </div>
+</div>
+
+<script>
+const products=[
+ {brand:"Laufenn",name:"G FIT EQ+",spec:"185/65 R15 88T",size:["185","65","R15"],price:630,img:"assets/laufenn.jpg",tag:"POPULAIRE"},
+ {brand:"Starmaxx",name:"Tolero ST330",spec:"185/65 R15 88T XL",size:["185","65","R15"],price:550,img:"assets/starmaxx.jpg",tag:"NOUVEAU"},
+ {brand:"Roadking",name:"Argos AX5",spec:"185/65 R15 88H",size:["185","65","R15"],price:550,img:"assets/roadking.jpg",tag:"NOUVEAU"},
+ {brand:"Michelin",name:"Primacy 4",spec:"185/65 R15 92T XL",size:["185","65","R15"],price:1050,img:"assets/michelin.jpg",tag:"PREMIUM"},
+ {brand:"Bridgestone",name:"Ecopia EP150",spec:"185/65 R15 88H",size:["185","65","R15"],price:830,img:"assets/bridgestone.jpg",tag:"PREMIUM"},
+ {brand:"Sailun",name:"Atrezzo Elite",spec:"185/65 R15 88H",size:["185","65","R15"],price:600,img:"assets/sailun.jpg",tag:"NOUVEAU"},
+ {brand:"Evershine",name:"Evershine",spec:"205/55 R16 91V",size:["205","55","R16"],price:650,img:"assets/evershine205.jpg",tag:"NOUVEAU"},
+ {brand:"Laufenn",name:"S FIT EQ+",spec:"205/55 R16 91H",size:["205","55","R16"],price:730,img:"assets/laufenn205.jpg",tag:"POPULAIRE"},
+ {brand:"Hankook",name:"Ventus Prime 4",spec:"205/55 R16 91H",size:["205","55","R16"],price:830,img:"assets/hankook205.jpg",tag:"PREMIUM"},
+ {brand:"Goodyear",name:"EfficientGrip Performance",spec:"205/55 R16 91V",size:["205","55","R16"],price:800,img:"assets/goodyear205.jpg",tag:"PREMIUM"},
+ {brand:"Bridgestone",name:"Turanza T005",spec:"205/55 R16 91W",size:["205","55","R16"],price:850,img:"assets/bridgestone205.jpg",tag:"PREMIUM"},
+ {brand:"Hankook",name:"Ventus Prime 3",spec:"195/65 R15 91H",size:["195","65","R15"],price:750,img:"assets/hankook195.jpg",tag:"PREMIUM"},
+ {brand:"Starmaxx",name:"Tolero ST330",spec:"195/65 R15 91T",size:["195","65","R15"],price:650,img:"assets/starmaxx195.jpg",tag:"NOUVEAU"},
+ {brand:"Petlas",name:"Progreen PT525",spec:"195/65 R15 91H XL",size:["195","65","R15"],price:700,img:"assets/petlas195.jpg",tag:"NOUVEAU"},
+ {brand:"Minerva",name:"209",spec:"175/65 R14 82T",size:["175","65","R14"],price:500,img:"assets/minerva175.jpg",tag:"NOUVEAU"},
+ {brand:"Starmaxx",name:"Tolero ST330",spec:"175/65 R14 82T",size:["175","65","R14"],price:550,img:"assets/starmaxx175.jpg",tag:"NOUVEAU"},
+ {brand:"Laufenn",name:"G FIT EQ+",spec:"175/65 R14 82T",size:["175","65","R14"],price:600,img:"assets/laufenn175.jpg",tag:"POPULAIRE"},
+ {brand:"Goodyear",name:"Eagle Sport 2",spec:"175/65 R14 82H",size:["175","65","R14"],price:600,img:"assets/goodyear175.jpg",tag:"PREMIUM"}
+];
+let selected=["","",""], step=0, selectedProduct=null;
+
+function renderStep(){
+ const box=document.getElementById("finderContent");
+ const labels=[
+  ["Quelle est la largeur ?","Choisissez la largeur inscrite sur votre pneu.",[...new Set(products.map(p=>p.size[0]))]],
+  ["Quelle est la hauteur ?","Choisissez la série / hauteur.",[...new Set(products.filter(p=>p.size[0]==selected[0]).map(p=>p.size[1]))]],
+  ["Quel est le diamètre ?","Choisissez le diamètre de votre jante.",[...new Set(products.filter(p=>p.size[0]==selected[0]&&p.size[1]==selected[1]).map(p=>p.size[2]))]]
+ ];
+ if(step>=3){showResults();return}
+ const [title,sub,opts]=labels[step];
+ box.innerHTML=`<div class="finder-title">${title}</div><p class="finder-sub">${sub}</p><div class="choices">${opts.map(o=>`<button class="choice" onclick="choose('${o}')">${o}</button>`).join("")}</div><div class="actions">${step?'<button class="secondary" onclick="back()">← Retour</button>':''}</div>`;
+ document.querySelectorAll(".step").forEach((el,i)=>el.classList.toggle("active",i<=step));
+}
+function choose(v){selected[step]=v;step++;renderStep()}
+function back(){step--;selected[step]="";renderStep()}
+function showResults(){
+ document.querySelectorAll(".step").forEach((el,i)=>el.classList.toggle("active",i<=3));
+ const list=products.filter(p=>p.size[0]==selected[0]&&p.size[1]==selected[1]&&p.size[2]==selected[2]);
+ document.getElementById("results").classList.remove("hidden");
+ document.getElementById("dimensionText").textContent=`Dimensions sélectionnées : ${selected[0]} / ${selected[1]} ${selected[2]}`;
+ document.getElementById("count").textContent=`${list.length} pneu${list.length>1?"s":""}`;
+ document.getElementById("productGrid").innerHTML=list.map((p,i)=>`
+  <article class="card"><div class="photo"><span class="label">${p.tag}</span><img src="${p.img}" alt="${p.brand} ${p.name}"></div>
+  <div class="body"><div class="brand">${p.brand}</div><div class="name">${p.name}</div><div class="spec">${p.spec}</div><div class="price">${p.price.toLocaleString("fr-FR")} DH</div>
+  <button class="buy" onclick="order('${p.brand} ${p.name} — ${p.spec} — ${p.price} DH')">Acheter maintenant / شراء الآن</button></div></article>`).join("");
+ document.getElementById("finderContent").innerHTML=`<div class="finder-title">Votre dimension : ${selected[0]} / ${selected[1]} ${selected[2]}</div><p class="finder-sub">Voici les pneus disponibles pour cette dimension.</p><div class="actions"><button class="primary" onclick="resetFinder()">Modifier la recherche</button></div>`;
+ document.getElementById("results").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function resetFinder(){selected=["","",""];step=0;document.getElementById("results").classList.add("hidden");renderStep();document.getElementById("finder").scrollIntoView({behavior:"smooth"})}
+function order(p){selectedProduct=p;document.getElementById("selected").textContent=p;document.getElementById("modal").classList.remove("hidden")}
+function closeOrder(){document.getElementById("modal").classList.add("hidden")}
+function sendOrder(){
+ const n=document.getElementById("client").value.trim(), ph=document.getElementById("phone").value.trim(), c=document.getElementById("city").value.trim(), a=document.getElementById("address").value.trim();
+ const msg=`Bonjour ZACK TYRE,%0A%0AJe souhaite commander :%0A${encodeURIComponent(selectedProduct)}%0A%0ANom : ${encodeURIComponent(n)}%0ATéléphone : ${encodeURIComponent(ph)}%0AVille : ${encodeURIComponent(c)}%0AAdresse : ${encodeURIComponent(a)}%0A%0APaiement : à la livraison`;
+ window.open("https://wa.me/212704129357?text="+msg,"_blank");
+}
+function openMenu(){alert("ZACK TYRE — Trouver un pneu • Produits • Contact")}
+renderStep();
+</script>
+</body>
+</html>
