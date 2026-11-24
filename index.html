@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZACK TYRE | Pneus neufs au Maroc</title>
+  <meta name="description" content="ZACK TYRE Casablanca — pneus neufs, recherche par dimensions, commande rapide par WhatsApp et livraison partout au Maroc.">
+  <meta name="keywords" content="pneus Casablanca, pneus Maroc, pneu 185/65R15, ZACK TYRE, pneus neufs">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#080808">
+  <link rel="canonical" href="https://zacktyre.ma/">
+
+  <meta property="og:title" content="ZACK TYRE — Pneus neufs au Maroc">
+  <meta property="og:description" content="Trouvez votre pneu par dimension et commandez rapidement.">
+  <meta property="og:url" content="https://zacktyre.ma/">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root{
+      --red:#ef111c;
+      --red2:#ff3038;
+      --bg:#050505;
+      --panel:#101012;
+      --panel2:#151518;
+      --line:#29292e;
+      --text:#fff;
+      --muted:#a8a8af;
+      --green:#20d26b;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;background:
+      radial-gradient(circle at 50% 15%,rgba(100,0,10,.30),transparent 35%),
+      var(--bg);color:var(--text);
+      font-family:Arial,Helvetica,sans-serif;
+    }
+    a{text-decoration:none;color:inherit}
+    button,input,select,textarea{font:inherit}
+    button{cursor:pointer}
+    .container{width:min(var(--max),calc(100% - 32px));margin:auto}
+
+    header{
+      position:sticky;top:0;z-index:50;
+      background:rgba(5,5,5,.88);backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{height:62px;width:auto;object-fit:contain;display:block}
+    .navlinks{display:flex;gap:28px;align-items:center;font-weight:800;color:#ddd}
+    .navlinks a:hover{color:#fff}
+    .menu{display:none;border:1px solid var(--line);background:var(--panel);color:#fff;border-radius:16px;padding:13px 16px;font-size:24px}
+
+    .hero{text-align:center;padding:92px 16px 120px}
+    .pill{
+      display:inline-flex;padding:10px 18px;border:1px solid #6d1d24;
+      border-radius:999px;background:#18080a;color:#ff6870;font-weight:900;letter-spacing:1px
+    }
+    h1{font-size:clamp(46px,8vw,86px);line-height:.94;letter-spacing:-4px;margin:26px auto 24px;max-width:1000px}
+    h1 span{color:var(--red)}
+    .hero p{max-width:720px;margin:auto;color:#bcbcc2;line-height:1.75;font-size:18px}
+
+    .finder{
+      margin:-55px auto 80px;position:relative;
+      background:linear-gradient(180deg,#131316,#0d0d0f);
+      border:1px solid #303036;border-radius:28px;padding:28px;
+      box-shadow:0 30px 80px rgba(0,0,0,.35)
+    }
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px}
+    .step{text-align:center;color:#777;font-size:13px;font-weight:900}
+    .dot{
+      width:36px;height:36px;border-radius:50%;border:1px solid #3a3a40;
+      margin:0 auto 8px;display:grid;place-items:center
+    }
+    .step.active{color:#fff}.step.active .dot{background:var(--red);border-color:var(--red)}
+    .finder h2{text-align:center;margin:0 0 8px;font-size:30px}
+    .finder .sub{text-align:center;color:var(--muted);margin:0 0 24px}
+    .options{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .option{
+      background:#0b0b0d;border:1px solid #33333a;color:#fff;border-radius:17px;
+      padding:20px;font-size:22px;font-weight:900;transition:.2s
+    }
+    .option:hover{border-color:var(--red);transform:translateY(-2px);background:#13090a}
+    .back{margin-top:15px;background:transparent;color:#aaa;border:0}
+
+    .section{padding:70px 0}
+    .section-title{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px}
+    .section-title h2{font-size:42px;margin:0}
+    .section-title p{color:var(--muted);margin:7px 0 0}
+    .count{border:1px solid #632027;background:#16080a;color:#ff6670;border-radius:999px;padding:10px 15px;font-weight:900}
+
+    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{
+      background:linear-gradient(180deg,#121214,#0d0d0f);
+      border:1px solid var(--line);border-radius:24px;overflow:hidden;
+      transition:.2s
+    }
+    .card:hover{transform:translateY(-4px);border-color:#4a2226}
+    .photo{height:300px;background:#09090a;position:relative;overflow:hidden}
+    .photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .badge{position:absolute;top:15px;left:15px;background:var(--red);padding:9px 13px;border-radius:999px;font-weight:900;font-size:12px}
+    .info{padding:22px}
+    .brand{color:#ff5961;font-weight:900;letter-spacing:1px;font-size:13px}
+    .model{font-size:26px;font-weight:900;margin:8px 0}
+    .size{color:#aaa}
+    .price{font-size:31px;font-weight:900;margin:18px 0 12px}
+    .buy{
+      width:100%;border:0;background:var(--red);color:#fff;border-radius:14px;
+      padding:15px;font-weight:900
+    }
+    .buy:hover{background:var(--red2)}
+
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .feature{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:22px}
+    .feature h3{margin:0 0 8px;font-size:20px}.feature p{color:var(--muted);line-height:1.6;margin:0}
+
+    footer{border-top:1px solid var(--line);padding:35px 0;color:#aaa}
+    .footerin{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+    .wa{
+      position:fixed;right:22px;bottom:22px;z-index:80;
+      width:64px;height:64px;border-radius:50%;display:grid;place-items:center;
+      background:var(--green);color:#fff;font-size:28px;box-shadow:0 12px 35px rgba(0,0,0,.45)
+    }
+
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:100;display:grid;place-items:center;padding:18px}
+    .modal.hidden{display:none}
+    .modalbox{width:min(520px,100%);background:#111113;border:1px solid #333;border-radius:24px;padding:24px;position:relative}
+    .close{position:absolute;right:15px;top:12px;border:0;background:none;color:#aaa;font-size:28px}
+    .modalbox h3{font-size:28px;margin:0 0 7px}.selected{color:#ff6970;font-weight:800;margin-bottom:20px}
+    .field{margin:12px 0}.field label{display:block;color:#bbb;font-size:13px;margin-bottom:7px}
+    .field input,.field textarea{
+      width:100%;border:1px solid #36363c;background:#09090a;color:#fff;
+      border-radius:12px;padding:13px;outline:none
+    }
+    .field input:focus,.field textarea:focus{border-color:var(--red)}
+    .send{width:100%;border:0;background:var(--green);color:#06140c;padding:15px;border-radius:13px;font-weight:900;margin-top:8px}
+
+    @media(max-width:850px){
+      .navlinks{display:none}
+      .menu{display:block}
+      .products{grid-template-columns:1fr}
+      .features{grid-template-columns:1fr}
+      .options{grid-template-columns:1fr}
+      .photo{height:280px}
+      .hero{padding:65px 10px 95px}
+      .finder{padding:20px;border-radius:22px}
+      .section-title{align-items:flex-start;flex-direction:column}
+      .section-title h2{font-size:34px}
+    }
+    @media(max-width:520px){
+      .container{width:min(var(--max),calc(100% - 22px))}
+      .nav{height:72px}.logo{height:53px}
+      h1{font-size:50px;letter-spacing:-2.5px}
+      .hero p{font-size:16px}
+      .steps{gap:2px}.step{font-size:11px}
+      .dot{width:32px;height:32px}
+      .finder h2{font-size:25px}
+      .wa{width:58px;height:58px;right:15px;bottom:15px}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Store",
+    "name":"ZACK TYRE",
+    "url":"https://zacktyre.ma/",
+    "description":"Pneus neufs et commande rapide au Maroc.",
+    "areaServed":"MA",
+    "priceRange":"MAD"
+  }
+  </script>
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <a href="#"><img class="logo" src="assets/logo.png" alt="ZACK TYRE"></a>
+    <nav class="navlinks">
+      <a href="#finder">Trouver un pneu</a>
+      <a href="#products">Produits</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="menu" onclick="document.querySelector('.navlinks').classList.toggle('show')">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="pill">ZACK TYRE • CASABLANCA</div>
+    <h1>Trouvez le pneu<br><span>qu'il vous faut.</span></h1>
+    <p>Sélectionnez les dimensions de votre pneu et découvrez instantanément les modèles disponibles chez ZACK TYRE.</p>
+  </section>
+
+  <section id="finder" class="container finder">
+    <div class="steps">
+      <div class="step active" id="s1"><div class="dot">1</div>Largeur</div>
+      <div class="step" id="s2"><div class="dot">2</div>Hauteur</div>
+      <div class="step" id="s3"><div class="dot">3</div>Diamètre</div>
+      <div class="step" id="s4"><div class="dot">✓</div>Résultats</div>
+    </div>
+    <div id="finderContent"></div>
+  </section>
+
+  <section id="products" class="section container">
+    <div class="section-title">
+      <div>
+        <h2>Pneus disponibles</h2>
+        <p>Prix affichés en DH • pneus neufs</p>
+      </div>
+      <div class="count" id="productCount">6 pneus</div>
+    </div>
+    <div class="products" id="productGrid"></div>
+  </section>
+
+  <section id="services" class="section container">
+    <div class="features">
+      <div class="feature"><h3>🚚 Livraison au Maroc</h3><p>Demandez les conditions et frais de livraison directement sur WhatsApp.</p></div>
+      <div class="feature"><h3>💵 Paiement à la livraison</h3><p>Commande simple et paiement à la réception selon les conditions convenues.</p></div>
+      <div class="feature"><h3>💬 Commande WhatsApp</h3><p>Un clic pour envoyer votre dimension, le modèle choisi et vos coordonnées.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="container footerin">
+    <div><strong>ZACK TYRE</strong><br><span>Pneus neufs • Casablanca • Maroc</span></div>
+    <div>© <span id="year"></span> ZACK TYRE</div>
+  </div>
+</footer>
+
+<a class="wa" href="#" onclick="openWhatsApp(event)" aria-label="WhatsApp">◔</a>
+
+<div class="modal hidden" id="modal">
+  <div class="modalbox">
+    <button class="close" onclick="closeOrder()">×</button>
+    <h3>Commander</h3>
+    <div class="selected" id="selected"></div>
+    <div class="field"><label>Nom</label><input id="client" placeholder="Votre nom"></div>
+    <div class="field"><label>Téléphone</label><input id="phone" type="tel" placeholder="06 / 07..."></div>
+    <div class="field"><label>Ville</label><input id="city" placeholder="Casablanca, Rabat..."></div>
+    <div class="field"><label>Adresse / remarque</label><textarea id="address" rows="3" placeholder="Adresse, quantité, livraison..."></textarea></div>
+    <button class="send" onclick="sendOrder()">Envoyer la commande sur WhatsApp</button>
+  </div>
+</div>
+
+<script>
+  /*
+    IMPORTANT:
+    1) Remplace WHATSAPP_NUMBER par ton numéro WhatsApp au format international,
+       sans +, espaces ni tirets. Exemple: 2126XXXXXXXX.
+    2) Garde ton logo dans assets/logo.png.
+    3) Pour les photos, mets les fichiers indiqués dans assets/.
+  */
+  const WHATSAPP_NUMBER = "2126XXXXXXXX";
+
+  const products = [
+    {brand:"LAUFENN", model:"G FIT EQ+", size:["185","65","R15"], code:"88T", price:630, badge:"POPULAIRE", image:"assets/laufenn.jpg"},
+    {brand:"STARMAXX", model:"Tolero ST330", size:["185","65","R15"], code:"88T XL", price:550, badge:"NOUVEAU", image:"assets/starmaxx.jpg"},
+    {brand:"ROADKING", model:"Argos AX5", size:["185","65","R15"], code:"88H", price:550, badge:"NOUVEAU", image:"assets/roadking.jpg"},
+    {brand:"SAILUN", model:"Atrezzo Elite", size:["185","65","R15"], code:"88H", price:600, badge:"NOUVEAU", image:"assets/sailun.jpg"},
+    {brand:"MICHELIN", model:"Primacy 4", size:["185","65","R15"], code:"92T XL", price:1000, badge:"PREMIUM", image:"assets/michelin.jpg"},
+    {brand:"BRIDGESTONE", model:"185/65R15", size:["185","65","R15"], code:"", price:750, badge:"PREMIUM", image:"assets/bridgestone.jpg"}
+  ];
+
+  let selected = [];
+
+  function setSteps(active){
+    [1,2,3,4].forEach(i => document.getElementById("s"+i).classList.toggle("active",i<=active));
+  }
+
+  function renderFinder(){
+    const content=document.getElementById("finderContent");
+    const step=selected.length;
+    setSteps(step+1);
+
+    if(step===0){
+      content.innerHTML=`<h2>Quelle est la largeur ?</h2>
+        <p class="sub">Choisissez la largeur inscrite sur votre pneu.</p>
+        <div class="options">${[...new Set(products.map(p=>p.size[0]))].map(v=>`<button class="option" onclick="choose('${v}')">${v}</button>`).join("")}</div>`;
+    }else if(step===1){
+      const vals=[...new Set(products.filter(p=>p.size[0]===selected[0]).map(p=>p.size[1]))];
+      content.innerHTML=`<h2>Quelle est la hauteur ?</h2>
+        <p class="sub">Choisissez la série / hauteur.</p>
+        <div class="options">${vals.map(v=>`<button class="option" onclick="choose('${v}')">${v}</button>`).join("")}</div>
+        <button class="back" onclick="selected.pop();renderFinder()">← Retour</button>`;
+    }else if(step===2){
+      const vals=[...new Set(products.filter(p=>p.size[0]===selected[0]&&p.size[1]===selected[1]).map(p=>p.size[2]))];
+      content.innerHTML=`<h2>Quel est le diamètre ?</h2>
+        <p class="sub">Choisissez le diamètre de votre jante.</p>
+        <div class="options">${vals.map(v=>`<button class="option" onclick="choose('${v}')">${v}</button>`).join("")}</div>
+        <button class="back" onclick="selected.pop();renderFinder()">← Retour</button>`;
+    }else{
+      const found=products.filter(p=>p.size.join("/")===selected.join("/"));
+      document.getElementById("products").scrollIntoView({behavior:"smooth"});
+      renderProducts(found);
+      content.innerHTML=`<h2>Dimension sélectionnée : ${selected.join(" / ")}</h2>
+        <p class="sub">${found.length} modèle(s) disponible(s).</p>
+        <button class="back" onclick="selected=[];renderFinder()">↻ Nouvelle recherche</button>`;
+    }
+  }
+
+  function choose(value){
+    selected.push(value);
+    renderFinder();
+  }
+
+  function renderProducts(list=products){
+    document.getElementById("productCount").textContent=list.length+" pneu"+(list.length>1?"s":"");
+    document.getElementById("productGrid").innerHTML=list.map((p,i)=>`
+      <article class="card">
+        <div class="photo">
+          <span class="badge">${p.badge}</span>
+          <img src="${p.image}" alt="${p.brand} ${p.model} ${p.size.join('/')}" loading="${i<2?'eager':'lazy'}"
+               onerror="this.style.display='none'">
+        </div>
+        <div class="info">
+          <div class="brand">${p.brand}</div>
+          <div class="model">${p.model}</div>
+          <div class="size">${p.size.join('/')} ${p.code}</div>
+          <div class="price">${p.price.toLocaleString('fr-FR')} DH</div>
+          <button class="buy" onclick='openOrder(${JSON.stringify(p)})'>Acheter maintenant / شراء الآن</button>
+        </div>
+      </article>`).join("");
+  }
+
+  function openOrder(p){
+    document.getElementById("selected").textContent=`${p.brand} ${p.model} • ${p.size.join("/")} • ${p.price} DH`;
+    document.getElementById("modal").classList.remove("hidden");
+    document.getElementById("client").focus();
+  }
+
+  function closeOrder(){document.getElementById("modal").classList.add("hidden")}
+
+  function sendOrder(){
+    const n=document.getElementById("client").value.trim();
+    const ph=document.getElementById("phone").value.trim();
+    const city=document.getElementById("city").value.trim();
+    const address=document.getElementById("address").value.trim();
+    const item=document.getElementById("selected").textContent;
+    if(!n || !ph || !city){alert("Merci de remplir le nom, téléphone et ville.");return}
+    const msg=`Bonjour ZACK TYRE 👋%0A%0AJe souhaite commander :%0A🛞 ${encodeURIComponent(item)}%0A👤 Nom : ${encodeURIComponent(n)}%0A📱 Téléphone : ${encodeURIComponent(ph)}%0A📍 Ville : ${encodeURIComponent(city)}%0A🏠 Adresse / remarque : ${encodeURIComponent(address||"À confirmer")}`;
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`,"_blank");
+  }
+
+  function openWhatsApp(e){
+    e.preventDefault();
+    const msg=encodeURIComponent("Bonjour ZACK TYRE 👋 Je souhaite avoir des informations sur les pneus disponibles.");
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`,"_blank");
+  }
+
+  document.getElementById("year").textContent=new Date().getFullYear();
+  renderFinder();
+  renderProducts();
+</script>
+</body>
+</html>
